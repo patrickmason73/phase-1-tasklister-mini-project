@@ -9,5 +9,6 @@ createTaskForm.addEventListener('click', submitTask)
 function submitTask(event) {
   let ul = document.getElementById("tasks")
   let li = document.createElement("li")
-  li.textContent = `${event.target }`
+  li.textContent = `${event.target}`
+  ul.append(li)
 }
