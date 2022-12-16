@@ -1,14 +1,15 @@
-document.addEventListener("DOMContentLoaded", (event) => {
-  event.preventDefault(event)
-});
+const form = document.getElementById('create-task-form')
+form.addEventListener("submit", (event) => {
+  event.preventDefault()
+  let description = document.getElementById('new-task-description')
+  let list = document.getElementById('tasks')
+  let task = description.value  
+  list.append(task)
+  let button = document.createElement("button")
+  button.textContent = "x"
+  button.addEventListener('click', (e) => {
+    e.target.parentNode.remove()
+  })
+  list.appendChild(button)
+})
 
-let createTaskForm = document.getElementById("create-task-form")
-
-createTaskForm.addEventListener('click', submitTask)
-
-function submitTask(event) {
-  let ul = document.getElementById("tasks")
-  let li = document.createElement("li")
-  li.textContent = `${event.target}`
-  ul.append(li)
-}
